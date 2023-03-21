@@ -25,7 +25,7 @@ import {
 } from './styles';
 import logo from '../../assets/logo.png';
 import { InputControl } from '../../components/Form/InputControl';
-import { AuthContext } from '../../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
 interface ScreenNavigationProp {
   navigate: (screen: string) => void;
@@ -41,7 +41,7 @@ const formSchema = yup.object({
 });
 
 export const SignIn: React.FunctionComponent = () => {
-  const { signIn } = React.useContext(AuthContext);
+  const { signIn } = useAuth();
   const [loading, setLoading] = React.useState(false);
   const {
     handleSubmit,
