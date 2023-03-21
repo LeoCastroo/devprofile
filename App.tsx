@@ -12,6 +12,7 @@ import AppLoading from 'expo-app-loading';
 import { SignIn } from './src/pages/SignIn';
 import { SignUp } from './src/pages/SignUp';
 import { Routes } from './src/routes';
+import { AuthProvider } from './src/context/AuthContext';
 
 const App: React.FunctionComponent = () => {
   const [fontsLoaded] = useFonts({
@@ -26,7 +27,9 @@ const App: React.FunctionComponent = () => {
   return (
     <NavigationContainer>
       <ThemeProvider theme={theme}>
-        <Routes />
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
       </ThemeProvider>
     </NavigationContainer>
   );
